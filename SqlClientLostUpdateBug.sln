@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlClientLostUpdateBug", "SqlClientLostUpdateBug\SqlClientLostUpdateBug.csproj", "{E964703C-07AC-4312-B0B0-759A48292727}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E964703C-07AC-4312-B0B0-759A48292727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E964703C-07AC-4312-B0B0-759A48292727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E964703C-07AC-4312-B0B0-759A48292727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E964703C-07AC-4312-B0B0-759A48292727}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E633EC7D-33CA-4B40-B460-88D39A07EF59}
+	EndGlobalSection
+EndGlobal
