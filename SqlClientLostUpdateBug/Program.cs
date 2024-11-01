@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace SqlClientLostUpdateBug
 {
@@ -11,6 +11,7 @@ namespace SqlClientLostUpdateBug
             await RecreateTableAsync();
 
             var currentValue = await GetCurrentValueAsync();
+            int successfulIterations = 0;
 
             while (true)
             {
@@ -30,7 +31,7 @@ namespace SqlClientLostUpdateBug
                     cts.Cancel();
                     await task;
                 }
-                catch (SqlException ex)
+                catch (SqlException ex) when (ex.ErrorCode == unchecked((int)0x80131904))
                 {
                     queryCancelled = true;
                     queryCancelledException = ex;
@@ -42,6 +43,16 @@ namespace SqlClientLostUpdateBug
                     Console.WriteLine($"Query cancelled but the value is changed from {currentValue} to {afterUpdateValue}");
                     Console.WriteLine("Query was cancelled with exception:");
                     Console.WriteLine(queryCancelledException);
+                }
+
+                if (queryCancelled && afterUpdateValue == currentValue)
+                {
+                    successfulIterations++;
+
+                    if (successfulIterations % 100 == 0)
+                    {
+                        Console.WriteLine($"Successful iterations: {successfulIterations}");
+                    }
                 }
 
                 currentValue = afterUpdateValue;
